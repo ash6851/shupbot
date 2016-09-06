@@ -8,15 +8,15 @@ import operator
 from slackclient import SlackClient
 
 # starterbot's ID as an environment variable
-BOT_ID = os.environ.get("BOT_ID")
+# BOT_ID = os.environ.get("BOT_ID")
 
 # constants
-print BOT_ID
-AT_BOT = "<@" + BOT_ID + ">"
+# print BOT_ID
+AT_BOT = "<@U27FPAALC>"
 EXAMPLE_COMMAND = "shup"
 
 # instantiate Slack & Twilio clients
-slack_client = SlackClient(os.environ.get('SLACKBOT_API_TOKEN'))
+slack_client = SlackClient('xoxb-75533350692-FAXaRJwjyN0eXXLBT27pNlcB')
 
 shup_records = {}
 
@@ -54,9 +54,9 @@ def handle_command(command, channel, who, rec_file):
                 response = 'Your total shups: %s' % sum(shup_history.values())
             else:
                 nice_hist = '\n'.join(['%s: %s' % (d, h) for d, h in shup_history.iteritems()])
-                response = 'Your shups history: %s' % nice_hist
-        # slack_client.api_call("chat.postMessage", channel=channel,
-        #                       text=response, as_user=True)
+                response = 'Your shups history:\n %s' % nice_hist
+                # slack_client.api_call("chat.postMessage", channel=channel,
+                #                       text=response, as_user=True)
     elif command.startswith('leaderboard'):
         totals = [(record['name'], sum(record['shup_history'].values())) for user, record in
                   shup_records.iteritems()]
@@ -105,8 +105,10 @@ if __name__ == "__main__":
         with open(rec_file_name, mode='r') as rec_file:
             try:
                 shup_records = json.load(rec_file)
-            except ValueError:
+            except ValueError as exc:
+                print "ERROR %s" % exc
                 shup_records = {}
+                exit()
 
         with open(rec_file_name, mode='w+') as rec_file:
             print shup_records
@@ -116,8 +118,8 @@ if __name__ == "__main__":
                 if command and channel:
                     keep_alive = handle_command(command, channel, who, rec_file)
                     if not keep_alive:
-                        json.dump(shup_records, rec_file)
                         break
                 time.sleep(READ_WEBSOCKET_DELAY)
+            json.dump(shup_records, rec_file)
     else:
         print("Connection failed. Invalid Slack token or bot ID?")

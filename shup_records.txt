@@ -1,5 +1,1 @@
-{
-"U0H9B215E": {"shup_history": {"09/02/2016": 1}, "name": "Ashley"},
-"U08GS4EAY": {"shup_history": {"09/02/2016": 1}, "name": "Drew"},
-"U04U533JE": {"shup_history": {"09/02/2016": 1}, "name": "Chhay"},
-"U04USQPGH": {"shup_history": {"09/02/2016": 1}, "name": "Matt"}}
+{"U25A0HPRN": {"shup_history": {"09/06/2016": 25}, "name": "Ben"}, "U0G3YHE8J": {"shup_history": {"09/06/2016": 15}, "name": "Nick"}, "U04USQPGH": {"shup_history": {"09/02/2016": 25}, "name": "Matt"}, "U0H9B215E": {"shup_history": {"09/02/2016": 1, "09/06/2016": 12}, "name": "Ashley"}, "U0QT47M45": {"shup_history": {"09/06/2016": 20}, "name": "Eduardo"}, "U08GS4EAY": {"shup_history": {"09/02/2016": 20}, "name": "Drew"}, "U04U533JE": {"shup_history": {"09/02/2016": 40, "09/06/2016": 40}, "name": "Chhay"}}
