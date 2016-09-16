@@ -16,7 +16,7 @@ AT_BOT = "<@U27FPAALC>"
 EXAMPLE_COMMAND = "shup"
 
 # instantiate Slack & Twilio clients
-slack_client = SlackClient('xoxb-75533350692-FAXaRJwjyN0eXXLBT27pNlcB')
+slack_client = SlackClient(os.environ.get("SLACK_KEY")
 
 shup_records = {}
 
